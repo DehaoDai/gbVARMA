@@ -36,7 +36,7 @@ A = matrix(c(0.49, 0.35, -0.43, -0.39), nrow = 2, byrow = T)
 B = diag(c(0.16, 0.18), 2)
 mu_e = c(0.4, 0.8)
 result = gbVARsim(n = 100, phi = A, p = 1, theta = B, mu = mu_e)
-plot(result$series, cex = 0)
-lines(result$series)
+plot(result$series[1,], cex = 0)
+lines(result$series[1,])
 
 }
