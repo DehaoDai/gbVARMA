@@ -52,7 +52,7 @@ gbVARsim <-
     if (nrow(theta) != d)
       stop("dimension of theta is wrong")
 
-    if (any(rowSums(abs(phi)) + rowSums(theta)) != 1)
+    if (any(rowSums(abs(phi)) + rowSums(theta) != 1))
       stop("coefficient matrices are wrong")
 
     ind1 = (phi >= 0) - (phi < 0)
