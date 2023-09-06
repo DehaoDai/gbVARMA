@@ -4,16 +4,7 @@
 \alias{gbVARsim}
 \title{Simulates a generalized binary Vector Autoregressive (gbVAR) time series.}
 \usage{
-gbVARsim(
-  n,
-  const = NULL,
-  phi,
-  p = NULL,
-  theta,
-  innov = NULL,
-  mu,
-  n.start = 100
-)
+gbVARsim(n, const = NULL, phi, p, theta, innov = NULL, mu, n.start = 100)
 }
 \arguments{
 \item{n}{Sample size}
@@ -44,6 +35,6 @@ Simulates a generalized binary Vector Autoregressive (gbVAR) time series.
 A = matrix(c(0.49, 0.35, -0.43, -0.39), nrow = 2)
 B = diag(c(0.16, 0.18), 2)
 mu_e = c(0.4, 0.8)
-gbVARsim(n = 100, phi = A, theta = B, mu = mu_e)
+gbVARsim(n = 100, phi = A, p = 1, theta = B, mu = mu_e)
 
 }

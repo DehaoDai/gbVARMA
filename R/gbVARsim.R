@@ -19,13 +19,13 @@
 #' A = matrix(c(0.49, 0.35, -0.43, -0.39), nrow = 2)
 #' B = diag(c(0.16, 0.18), 2)
 #' mu_e = c(0.4, 0.8)
-#' gbVARsim(n = 100, phi = A, theta = B, mu = mu_e)
+#' gbVARsim(n = 100, phi = A, p = 1, theta = B, mu = mu_e)
 #'
 gbVARsim <-
   function(n,
            const = NULL,
            phi,
-           p = NULL,
+           p,
            theta,
            innov = NULL,
            mu,
@@ -35,12 +35,6 @@ gbVARsim <-
     if (any(mu > 1 | mu < 0))
       stop("mean of innovation must be from 0 to 1")
     d = length(mu)
-
-    if (is.null(p))
-      p = floor(ncol(phi) / d)
-
-    if (p != floor(ncol(phi) / d))
-      stop("arlag is wrong")
 
     if (!is.null(innov) && ncol(innov) != n)
       stop("length of innovation must be equal to n")
